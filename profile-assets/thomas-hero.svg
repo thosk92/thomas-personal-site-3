@@ -1,0 +1,111 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#080512"/>
+      <stop offset="0.42" stop-color="#21103D"/>
+      <stop offset="0.72" stop-color="#6D28D9"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(880 120) rotate(135) scale(430 260)">
+      <stop stop-color="#F0ABFC" stop-opacity="0.72"/>
+      <stop offset="0.55" stop-color="#A855F7" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 330) rotate(-25) scale(380 210)">
+      <stop stop-color="#C084FC" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#C084FC" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.74 0 1 0 0 0.33 0 0 1 0 1 0 0 0 0.65 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#FFFFFF" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+    <style>
+      @keyframes titleReveal {
+        0%, 16% { opacity: 0.22; filter: blur(7px); transform: translateY(14px); }
+        24%, 72% { opacity: 1; filter: blur(0); transform: translateY(0); }
+        88%, 100% { opacity: 0.38; filter: blur(3px); transform: translateY(-4px); }
+      }
+      @keyframes subtitleReveal {
+        0%, 24% { opacity: 0; transform: translateY(12px); }
+        34%, 82% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0.72; transform: translateY(0); }
+      }
+      @keyframes pixelDrift {
+        0% { opacity: 0; transform: translateY(22px) scale(0.65); }
+        16% { opacity: 0.95; }
+        52% { opacity: 0.42; transform: translateY(-8px) scale(1); }
+        100% { opacity: 0; transform: translateY(-42px) scale(0.7); }
+      }
+      @keyframes scan {
+        0% { transform: translateX(-360px); opacity: 0; }
+        24% { opacity: 0.62; }
+        62% { opacity: 0.24; }
+        100% { transform: translateX(1280px); opacity: 0; }
+      }
+      .title {
+        animation: titleReveal 6.2s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      .subtitle {
+        animation: subtitleReveal 6.2s ease-in-out infinite;
+      }
+      .pixel {
+        animation: pixelDrift 4.8s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      .scan {
+        animation: scan 5.8s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="420" rx="38" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="38" fill="url(#grid)"/>
+  <rect width="1200" height="420" rx="38" fill="url(#glowA)"/>
+  <rect width="1200" height="420" rx="38" fill="url(#glowB)"/>
+
+  <g opacity="0.68">
+    <path d="M945 70C1004 76 1056 125 1070 184C1085 247 1055 318 994 345C932 373 851 360 808 304C765 248 760 161 807 112C843 75 892 64 945 70Z" fill="#0B0618" fill-opacity="0.46"/>
+    <path d="M266 100C319 80 387 88 423 133C463 182 448 260 399 302C350 345 271 351 224 310C177 268 165 193 197 143C214 121 237 111 266 100Z" fill="#05020C" fill-opacity="0.46"/>
+  </g>
+
+  <g class="scan">
+    <rect x="0" y="0" width="170" height="420" fill="white" opacity="0.08"/>
+    <rect x="142" y="0" width="22" height="420" fill="#F5D0FE" opacity="0.26"/>
+  </g>
+
+  <g filter="url(#softGlow)">
+    <text class="title" x="600" y="198" text-anchor="middle" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="74" font-weight="900" letter-spacing="3">
+      THOMAS ZANELLI
+    </text>
+  </g>
+
+  <text class="subtitle" x="600" y="254" text-anchor="middle" fill="#F5D0FE" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="25" font-weight="700" letter-spacing="1.2">
+    Full-stack Web Engineer  |  AI Product Builder  |  Next.js Specialist
+  </text>
+
+  <g opacity="0.95">
+    <rect class="pixel" x="140" y="110" width="10" height="10" rx="2" fill="#F0ABFC" style="animation-delay:0s"/>
+    <rect class="pixel" x="186" y="305" width="8" height="8" rx="2" fill="#C084FC" style="animation-delay:.35s"/>
+    <rect class="pixel" x="248" y="72" width="12" height="12" rx="2" fill="#EC4899" style="animation-delay:.7s"/>
+    <rect class="pixel" x="356" y="322" width="9" height="9" rx="2" fill="#F5D0FE" style="animation-delay:1s"/>
+    <rect class="pixel" x="468" y="92" width="8" height="8" rx="2" fill="#A855F7" style="animation-delay:1.4s"/>
+    <rect class="pixel" x="736" y="78" width="11" height="11" rx="2" fill="#F0ABFC" style="animation-delay:.2s"/>
+    <rect class="pixel" x="842" y="312" width="9" height="9" rx="2" fill="#EC4899" style="animation-delay:.92s"/>
+    <rect class="pixel" x="960" y="98" width="8" height="8" rx="2" fill="#F5D0FE" style="animation-delay:1.25s"/>
+    <rect class="pixel" x="1046" y="278" width="13" height="13" rx="3" fill="#C084FC" style="animation-delay:.58s"/>
+    <rect class="pixel" x="1090" y="152" width="8" height="8" rx="2" fill="#F0ABFC" style="animation-delay:1.8s"/>
+  </g>
+
+  <path d="M160 350H1040" stroke="url(#bg)" stroke-width="1"/>
+  <path d="M264 338H936" stroke="#F5D0FE" stroke-opacity="0.18" stroke-width="1"/>
+</svg>

@@ -1,0 +1,64 @@
+/* Shared neutral identity, including service, form and document pages. */
+:root{--rams-font:"Helvetica Neue",Helvetica,Arial,sans-serif;--bg:#f5f5f2;--bg-secondary:#e5e5e0;--surface:#fafaf7;--text:#20201e;--text-muted:#686862;--heading:#20201e;--accent:#20201e;--accent-hover:#44443e;--accent-soft:#e5e5e0;--border:#cdcdc6;--fg:var(--text);--muted:var(--text-muted);--soft:#686862;--line:#cdcdc6;--line-strong:#b3b3ac;--surface-warm:#e5e5e0;--surface-deep:#d8d5ce;--shadow:none;--rail-width:70px}
+body{font-family:var(--rams-font);font-size:16px;background:var(--bg);color:var(--text)}
+.site-content{margin-left:var(--rail-width);min-height:100svh}
+.site-rail{position:fixed;inset:0 auto 0 0;width:var(--rail-width);z-index:70;background:#e5e5e0;display:flex;align-items:center;flex-direction:column;color:#65655f}
+.rail-identity{display:flex;flex-direction:column;align-items:center;gap:28px;padding-top:90px;font-size:10px;letter-spacing:.035em;line-height:1.1}
+.rail-identity span{writing-mode:vertical-rl;transform:rotate(180deg)}
+.rail-identity span+span{border-bottom:1px solid #cdcdc6;padding-bottom:22px}
+.site-rail nav{display:grid;gap:12px;margin-top:auto;margin-bottom:auto;padding-block:45px}
+.site-rail nav a{display:flex;flex-direction:column;align-items:center;font-size:11px;min-width:44px;min-height:44px;justify-content:center;position:relative}
+.site-rail nav a[aria-current]{color:#20201e}
+.site-rail nav a[aria-current]::after{content:'';height:16px;width:1px;background:currentColor;position:absolute;top:34px}
+.site-rail a:hover{color:#20201e}
+.rams-brand{display:inline-flex;align-items:center;gap:18px;color:var(--text);font-size:20px;font-weight:400;letter-spacing:-.035em;line-height:1.2;flex-shrink:0}
+.rams-brand img{display:block;width:43px;height:auto;object-fit:contain}
+.rams-brand-compact img{width:36px}
+.site-content :is(.premium-service,.rams-document,.status-page){background:var(--bg);color:var(--text)}
+.site-content .section{width:min(1140px,calc(100% - 96px));max-width:1140px;margin-inline:auto}
+.site-content .seo-page{padding-block:24px 80px}
+.site-content .seo-breadcrumb{font-size:12px;line-height:1.5;color:var(--text-muted);flex-wrap:wrap;margin-bottom:0}
+.site-content .seo-hero{max-width:900px;padding:48px 0 56px}
+.site-content :is(.seo-hero h1,.status-panel h1){font-family:var(--rams-font);font-size:clamp(36px,4.3vw,60px);line-height:1.08;letter-spacing:-.045em;font-weight:400;margin-block:20px}
+.site-content .seo-hero>p:not(.kicker){font-size:22px;line-height:1.5;color:var(--text-muted);max-width:760px}
+.site-content .kicker{font-family:var(--rams-font);font-size:11px;color:var(--text-muted);letter-spacing:.07em;text-transform:uppercase}
+.site-content .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
+.site-content .btn{font-family:var(--rams-font);border:1px solid #777771;border-radius:0;box-shadow:none;min-height:48px;padding:13px 22px;font-size:14px;font-weight:400;letter-spacing:0;transform:none;background:transparent;color:var(--text);text-transform:none}
+.site-content .btn-primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.site-content .btn-primary::after{display:none}
+.site-content .btn:hover{transform:none;background:#e5e5e0;color:var(--text);box-shadow:none}
+.site-content .btn-primary:hover{background:#45453f;color:var(--bg)}
+.site-content :is(.seo-content-section,.seo-related,.seo-faq){border-color:var(--border);padding-block:40px}
+.site-content .seo-content-section{display:grid;grid-template-columns:1fr 1.4fr;gap:60px}
+.site-content :is(.seo-content-section h2,.seo-related h2,.seo-cta h2,.seo-faq h2){font-family:var(--rams-font);font-size:30px;font-weight:400;letter-spacing:-.035em;line-height:1.2;color:var(--text)}
+.site-content :is(.seo-content-section p,.seo-related p,.seo-cta p,.seo-faq details p,.status-panel>p){font-size:16px;line-height:1.75;color:var(--text-muted)}
+.site-content .seo-inline-note{padding:20px 0;border-radius:0;border:0;border-top:1px solid var(--border);background:transparent}
+.site-content .seo-inline-note h3{font-size:18px;font-weight:400;color:var(--text)}
+.site-content .seo-related-links a{border-radius:0;padding:22px 0;background:transparent;box-shadow:none;border:0;border-top:1px solid var(--border)}
+.site-content .seo-related-links a:hover{background:transparent;color:var(--text)}
+.site-content .seo-related-links strong{font-weight:400;font-size:20px;line-height:1.3;color:var(--text)}
+.site-content .seo-related-links span{font-family:var(--rams-font);color:var(--text-muted)}
+.site-content .seo-cta{background:#e5e5e0;border-radius:0;padding:36px;border:0;box-shadow:none}
+.site-content .seo-faq details{border-radius:0;border-color:var(--border);padding-block:20px}
+.site-content .seo-faq summary{font-size:17px;font-weight:400;padding-right:30px}
+.site-content .rams-document-body{max-width:850px;padding-block:48px 80px}
+.rams-document h1{font-size:48px;font-weight:400;letter-spacing:-.04em}
+.rams-document h2{font-weight:400;font-size:24px;letter-spacing:-.025em}
+.rams-document .space-y-6>div{padding-top:24px;border-top:1px solid var(--border)}
+.rams-document p,.rams-document li{line-height:1.75}
+.site-content .status-page{min-height:60svh;padding-block:60px;display:flex;align-items:center}
+.site-content .status-panel{background:transparent;border:0;border-radius:0;box-shadow:none;max-width:740px;padding:0}
+.site-content .status-panel::before{display:none}
+.cookie-banner{border-radius:0;background:var(--bg);border:1px solid var(--border);box-shadow:none;font-family:var(--rams-font)}
+.cookie-banner button,.cookie-preferences-button{border-radius:0;font-weight:400;font-family:var(--rams-font)}
+.cookie-banner .cookie-accept{background:var(--text);color:var(--bg);border-color:var(--text)}
+.cookie-preferences-button{background:var(--bg);color:var(--text);border-color:var(--border);box-shadow:none}
+@media(max-width:900px){:root{--rail-width:54px}.site-content .section{width:calc(100% - 64px)}.site-content .seo-content-section{gap:30px}.rams-brand{gap:14px;font-size:18px}.rams-brand img{width:38px}}
+@media(max-width:700px){:root{--rail-width:24px}.rail-identity{font-size:8px;gap:22px;padding-top:110px}.rail-identity span+span{padding-bottom:18px}.site-rail nav{display:none}.site-content .section{width:calc(100% - 40px)}.rams-brand{gap:12px;font-size:17px}.rams-brand img{width:32px}.site-content .seo-page{padding-top:16px}.site-content .seo-hero{padding-block:32px 40px}.site-content .seo-hero h1{font-size:36px;overflow-wrap:break-word}.site-content .seo-hero>p:not(.kicker){font-size:20px}.site-content .seo-content-section{grid-template-columns:1fr;gap:20px}.site-content :is(.seo-content-section h2,.seo-related h2,.seo-cta h2,.seo-faq h2){font-size:26px}.site-content .seo-related{grid-template-columns:1fr;gap:24px}.site-content .seo-related-links{grid-template-columns:1fr}.site-content .seo-cta{padding:24px}.site-content .hero-actions{gap:12px}.site-content .hero-actions .btn{width:100%;text-align:center;justify-content:center}.rams-document h1{font-size:36px}.site-content .rams-document-body{padding-top:32px}.cookie-banner{bottom:12px;left:calc(var(--rail-width) + 12px);right:12px;width:auto;padding:16px}.cookie-banner-actions button{min-height:44px}.cookie-preferences-button{left:auto;right:12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+.site-content .seo-inline-note h3,.site-content .seo-breadcrumb{font-family:var(--rams-font);letter-spacing:0}
+.cookie-preferences-button{font-size:11px;padding:7px 10px;opacity:.92}
+@media(min-width:901px){:root{--rail-width:80px}.rams-brand{font-size:22px}.rams-brand img{width:46px}.site-content .section{width:min(1240px,calc(100% - 104px));max-width:1240px}.site-content .rams-document-body{max-width:850px}}
+
+/* Fixed vector arrows stay legible across font and device differences. */
+.link-arrow{display:inline-block;width:18px;height:18px;flex:0 0 18px;vertical-align:-3px;color:inherit}

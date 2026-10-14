@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Thomas — Portfolio (v1.5.0)
+Starter Next.js + Three.js in stile designisfunny: sezioni 01–04, header sticky, grid lavori, CTA, background particellare.
 
-First, run the development server:
+## Stack
+- Next 14.2.15, React 18.2
+- @react-three/fiber 8.15.x, three 0.160
+- Tailwind, Framer Motion
+- Alias `@/*` (configurato in tsconfig)
+- `"overrides"` per forzare una singola copia di React/Reconciler
 
-```bash
+## Avvio
+```
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stripe Checkout
+Per abilitare il pagamento online del pacchetto "Check-up Sito", crea un prodotto e un Price ID in Stripe e configura:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+STRIPE_SECRET_KEY=
+NEXT_PUBLIC_SITE_URL=
+STRIPE_CHECKUP_PRICE_ID=
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`STRIPE_SECRET_KEY` resta solo server-side. La route `app/api/checkout/checkup/route.ts` crea la Checkout Session usando `STRIPE_CHECKUP_PRICE_ID` e reindirizza verso `/pagamento-completato` o `/pagamento-annullato`.
 
-## Learn More
+## Preventivo restyling
+La route `app/api/restyling-request/route.ts` verifica il sito ricevuto, legge titolo/descrizione/HTML e invia la richiesta tramite Resend. Configura:
 
-To learn more about Next.js, take a look at the following resources:
+```
+RESEND_API_KEY=
+RESTYLING_REQUEST_FROM="Thomas Zanelli <preventivi@zanelliai.com>"
+RESTYLING_REQUEST_TO=
+RESTYLING_REQUEST_WEBHOOK_URL=
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4o-mini
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`OPENAI_API_KEY` abilita la prima analisi automatica del sito. Senza questa variabile il form funziona comunque, ma non include la sintesi AI.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Note
+Se vedi errori di dipendenze, pulisci e reinstalla:
+```
+rm -rf node_modules .next package-lock.json
+npm i
+```

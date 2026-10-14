@@ -1,0 +1,14 @@
+.git
+.next
+node_modules
+.vercel
+.env
+.env.*
+.DS_Store
+.design-reference
+design-qa.md
+tsconfig.tsbuildinfo
+test-results
+coverage
+dist
+*.log
